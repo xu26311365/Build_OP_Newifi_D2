@@ -23,3 +23,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 #sed -i '/spi-max-frequency/a\t\tbroken-flash-reset;' target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts
 sed -i 's/reg = <0x50000 0x1fb0000>/reg = <0x50000 0x3fb0000>/g' target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts
 sed -i 's/32448k/64521k/g' target/linux/ramips/image/mt7621.mk
+
+设置首次登录后台密码为空（进入openwrt后自行修改密码）
+sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
+
+删除默认防火墙
+sed -i '/to-ports 53/d' package/lean/default-settings/files/zzz-default-settings
